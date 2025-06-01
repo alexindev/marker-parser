@@ -145,52 +145,6 @@ class SearchQueryViewSet(viewsets.ModelViewSet):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-    @action(detail=False, methods=["post"])
-    def create_parsing(self, request):
-        """
-        Создание задачи парсинга после согласия пользователя
-
-        Принимает JSON: {"query": "текст запроса"}
-        Создает запись в БД и запускает парсинг
-        """
-        serializer = QueryTextSerializer(data=request.data)
-        if not serializer.is_valid():
-            return Response(
-                serializer.errors,
-                status=status.HTTP_400_BAD_REQUEST,
-            )
-
-        try:
-            query = serializer.validated_data["query"]
-
-            # Проверяем, существует ли уже запрос с таким текстом
-            existing_query = SearchQueryModel.objects.filter(
-                query=query
-            ).first()
-            if existing_query:
-                return Response(
-                    {"error": "Запрос уже добавлен"},
-                    status=status.HTTP_409_CONFLICT,
-                )
-
-            # Создаем новый запрос
-            search_query = SearchQueryModel.objects.create(query=query)
-
-            # Запускаем парсинг в фоне
-            parser_service = MarketplaceParserService()
-            parser_service.start_parsing(search_query.id, query)
-
-            return Response(
-                {"success": True},
-                status=status.HTTP_201_CREATED,
-            )
-
-        except Exception as e:
-            return Response(
-                {"error": f"Ошибка при создании задачи парсинга: {str(e)}"},
-                status=status.HTTP_400_BAD_REQUEST,
-            )
-
     @action(detail=False, methods=["get"])
     def history(self, request):
         """Получение истории всех поисковых запросов"""
