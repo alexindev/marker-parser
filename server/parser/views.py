@@ -191,20 +191,6 @@ class SearchQueryViewSet(viewsets.ModelViewSet):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-    @action(detail=True, methods=["get"])
-    def status(self, request, pk=None):
-        """Получение статуса парсинга"""
-        search_query = self.get_object()
-        return Response(
-            {
-                "id": search_query.id,
-                "query": search_query.query,
-                "is_completed": search_query.is_completed,
-                "total_results": search_query.total_results,
-                "created_at": search_query.created_at,
-            }
-        )
-
     @action(detail=False, methods=["get"])
     def history(self, request):
         """Получение истории всех поисковых запросов"""
