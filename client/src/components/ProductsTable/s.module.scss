@@ -1,0 +1,170 @@
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--color-light-gray);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+.table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: var(--font-size-base);
+}
+
+// Анимация для плавного изменения ширины
+.table col {
+  transition: width 0.3s ease;
+}
+
+.headerCell {
+  padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-sm) var(--spacing-sm);
+  text-align: left;
+  background-color: rgba(60, 60, 60, 0.05);
+  color: var(--color-dark-gray);
+  font-weight: 400;
+  border-bottom: 1px solid var(--color-light-gray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: var(--font-size-small);
+  position: relative;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: auto;
+  min-height: 60px;
+  vertical-align: middle;
+  line-height: 1.3;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.colName {
+  width: 30%;
+}
+
+.colBrand {
+  width: 15%;
+}
+
+.colSupplier {
+  width: 15%;
+}
+
+.colRating {
+  width: 10%;
+  text-align: center;
+}
+
+.colFeedbacks {
+  width: 10%;
+  text-align: center;
+}
+
+.colPrice {
+  width: 10%;
+  text-align: right;
+}
+
+.sortableHeader {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  user-select: none;
+  padding-right: 25px;
+  
+  &:hover {
+    background-color: rgba(232, 119, 34, 0.1);
+  }
+}
+
+.activeSortHeader {
+  background-color: rgba(232, 119, 34, 0.15);
+}
+
+.sortIndicator {
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.tableRow {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  height: 50px;
+  
+  &:nth-child(even) {
+    background-color: rgba(60, 60, 60, 0.02);
+  }
+
+  &:hover {
+    background-color: rgba(232, 119, 34, 0.05);
+  }
+}
+
+.tableCell {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid rgba(60, 60, 60, 0.1);
+  color: var(--color-dark-gray);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+
+// Специальные стили для ячейки с названием продукта
+.cellName {
+  max-width: 0; // Хак для работы text-overflow в td
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tableCellLink {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid rgba(60, 60, 60, 0.1);
+  text-align: center;
+}
+
+.productLink {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-dark-gray);
+  color: var(--color-lighter-beige);
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: var(--font-size-small);
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background-color: var(--color-orange);
+  }
+}
+
+.loadingState, .emptyState {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--color-brown);
+  font-size: var(--font-size-medium);
+  letter-spacing: 1px;
+}
+
+// Специальные стили для ячеек таблицы
+.cellRating {
+  text-align: center;
+}
+
+.cellFeedbacks {
+  text-align: center;
+}
+
+.cellPrice {
+  text-align: right;
+} 

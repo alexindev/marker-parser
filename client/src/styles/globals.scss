@@ -1,0 +1,108 @@
+// Ретро цветовые переменные
+:root {
+  --color-orange: #e87722;
+  --color-dark-gray: #3c3c3c;
+  --color-light-gray: #c5c5c5;
+  --color-lighter-gray: #e8e8e8;
+  --color-beige: #e5e0d3;
+  --color-lighter-beige: #f5f2eb;
+  --color-brown: #9b8b7a;
+  --color-shadow: rgba(0, 0, 0, 0.3);
+  
+  // Типографика
+  --font-mono: 'Courier New', 'Monaco', monospace;
+  --font-size-small: 12px;
+  --font-size-base: 14px;
+  --font-size-medium: 16px;
+  --font-size-large: 18px;
+  --font-size-xlarge: 24px;
+  --font-size-xxlarge: 32px;
+  --font-size-xxxlarge: 40px;
+  
+  // Отступы
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  
+  // Переходы
+  --transition-base: all 0.2s ease;
+}
+
+// Сброс стилей
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-mono);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-lighter-beige);
+  color: var(--color-dark-gray);
+  line-height: 1.4;
+  font-weight: bold;
+}
+
+button, input, textarea, select {
+  font-family: var(--font-mono);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// Ретро анимации
+@keyframes retroPulse {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes retroGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--color-orange);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--color-orange), 0 0 30px var(--color-orange);
+  }
+}
+
+@keyframes retroSlide {
+  0% {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+// Утилиты
+.retro-pulse {
+  animation: retroPulse 2s infinite;
+}
+
+.retro-glow {
+  animation: retroGlow 3s infinite;
+}
+
+.retro-slide {
+  animation: retroSlide 0.5s ease-out;
+} 

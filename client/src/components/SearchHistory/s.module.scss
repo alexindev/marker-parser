@@ -1,0 +1,168 @@
+.historyContainer {
+  margin-top: 60px;
+}
+
+.historyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--color-dark-gray);
+}
+
+.historyTitle {
+  font-size: var(--font-size-medium);
+  color: var(--color-dark-gray);
+  margin: 0;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.clearButton {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: transparent;
+  color: var(--color-dark-gray);
+  border: 1px solid var(--color-dark-gray);
+  cursor: pointer;
+  font-size: var(--font-size-small);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &:hover {
+    background: var(--color-orange);
+    color: var(--color-light-gray);
+  }
+}
+
+.historyList {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.historyItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-md) 0;
+  background: transparent;
+  border-bottom: 1px solid rgba(60, 60, 60, 0.2);
+
+  &:hover {
+    background: rgba(232, 119, 34, 0.05);
+  }
+}
+
+.queryButton {
+  flex: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.queryText {
+  font-size: var(--font-size-medium);
+  color: var(--color-dark-gray);
+  font-weight: 400;
+  letter-spacing: 1px;
+  flex: 1;
+}
+
+.timestamp {
+  font-size: var(--font-size-small);
+  color: var(--color-brown);
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+.removeButton {
+  background: transparent;
+  border: 1px solid var(--color-brown);
+  cursor: pointer;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  color: var(--color-brown);
+  font-size: var(--font-size-small);
+  font-weight: 400;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &:hover {
+    background: var(--color-brown);
+    color: var(--color-light-gray);
+  }
+}
+
+.emptyState {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--color-brown);
+  font-size: var(--font-size-medium);
+  letter-spacing: 1px;
+}
+
+.loadingState {
+  padding: 20px 0;
+  text-align: center;
+  color: var(--color-dark-gray);
+  font-size: var(--font-size-medium);
+  letter-spacing: 1px;
+}
+
+.searchButton {
+  margin-right: var(--spacing-sm);
+  border-color: var(--color-dark-gray);
+  color: var(--color-dark-gray);
+  
+  &:hover:not(:disabled) {
+    background: var(--color-dark-gray);
+    color: var(--color-light-gray);
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: var(--color-light-gray);
+    color: var(--color-light-gray);
+  }
+}
+
+.itemDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+}
+
+.status {
+  font-size: var(--font-size-small);
+  padding: 2px 6px;
+  border-radius: 3px;
+  display: inline-block;
+  letter-spacing: 0.5px;
+}
+
+.statusProcessing {
+  background-color: rgba(232, 119, 34, 0.15);
+  color: var(--color-orange);
+  border: 1px solid var(--color-orange);
+}
+
+.statusCompleted {
+  background-color: rgba(60, 60, 60, 0.1);
+  color: var(--color-dark-gray);
+  border: 1px solid var(--color-dark-gray);
+} 
