@@ -1,0 +1,31 @@
+services:
+  # Бэкенд сервис
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: server
+    restart: unless-stopped
+    volumes:
+      - ./server:/app
+    ports:
+      - "8000:8000"
+    networks:
+      - app_network
+
+  # Фронтенд сервис
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: client
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    networks:
+      - app_network
+
+# Выделенная сеть для взаимодействия контейнеров
+networks:
+  app_network:
+    driver: bridge
